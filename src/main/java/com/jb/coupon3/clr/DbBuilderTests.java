@@ -40,6 +40,10 @@ public class DbBuilderTests implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        if (companyRepo.count() > 0) {
+            return;
+        }
+
         Company comp1 = Company.builder()
                 .name("samsung")
                 .email("samsung@samsung.com")
